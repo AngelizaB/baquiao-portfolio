@@ -1,0 +1,823 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Angeliza Baquiao | Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio of Angeliza Baquiao, student and creative designer focusing on Website and UI Design, featuring skills in Figma, Photoshop, Django, and modern web development.">
+  <meta name="author" content="Angeliza Baquiao">
+  <meta name="theme-color" content="#A65D78">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Angeliza Baquiao | Portfolio">
+  <meta property="og:description" content="Website & UI Design portfolio of Angeliza Baquiao: my story, hobbies, creative toolkit, and projects.">
+  <meta property="og:url" content="https://baquiao-portfolio.vercel.app">
+
+  <!-- Google Fonts: Playfair Display for headings, Poppins for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#about">Skip to main content</a>
+
+  <!-- Toast Notification for Form Submission -->
+  <div id="toastNotification" class="toast-notification {% if form_submitted %}show{% endif %}" role="alert" aria-live="assertive">
+    <div class="toast-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">Message Sent!</div>
+      <div class="toast-desc">Thank you for reaching out. I'll get back to you as soon as possible.</div>
+    </div>
+    <button type="button" class="toast-close" id="toastCloseBtn" aria-label="Close notification">&times;</button>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="site-header" id="header">
+    <div class="header-inner container">
+      <a href="#top" class="brand" aria-label="Angeliza Baquiao - Back to top">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">Angeliza <span class="brand-sub">Baquiao</span></span>
+      </a>
+
+      <!-- Desktop Nav Pill (Frosted Glass) -->
+      <nav class="nav-pill glass" id="desktopNav" aria-label="Main Navigation">
+        <a href="#top" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#toolkit" class="nav-link">Toolkit</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Menu Toggle -->
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-cta">
+          <span>Let's talk</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12L12 4M5.5 4H12v6.5" />
+          </svg>
+        </a>
+        <button class="menu-toggle-btn glass" id="menuToggleBtn" type="button" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+          <span class="menu-icon-bar"></span>
+          <span class="menu-icon-bar"></span>
+          <span class="menu-icon-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-header">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-name">Angeliza Baquiao</span>
+        </div>
+        <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="drawer-nav">
+        <a href="#top" class="drawer-link">Home</a>
+        <a href="#about" class="drawer-link">About Me</a>
+        <a href="#work" class="drawer-link">Work &amp; Hobbies</a>
+        <a href="#toolkit" class="drawer-link">Toolkit &amp; Skills</a>
+        <a href="#contact" class="drawer-link">Contact</a>
+      </nav>
+      <div class="drawer-footer">
+        <a href="#contact" class="btn btn-primary btn-block">Get In Touch</a>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="top" aria-label="Introduction">
+      <!-- Decorative Concentric Arcs -->
+      <svg class="hero-arcs" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <ellipse cx="720" cy="720" rx="680" ry="360" fill="none" stroke="#A65D78" stroke-opacity="0.12" stroke-width="1.2" />
+        <ellipse cx="720" cy="740" rx="510" ry="260" fill="none" stroke="#A65D78" stroke-opacity="0.16" stroke-width="1.2" />
+        <ellipse cx="720" cy="760" rx="340" ry="170" fill="none" stroke="#F8C8DC" stroke-opacity="0.25" stroke-width="1.2" />
+      </svg>
+
+      <div class="container hero-container">
+        <!-- Hero Text Content -->
+        <div class="hero-text-col">
+          <div class="hero-badge">
+            <span class="badge-pulsing-dot"></span>
+            <span>Welcome to my personal portfolio</span>
+          </div>
+
+          <h1 class="hero-title">
+            Designing with grace, <br>
+            <span class="title-italic-accent">learning with purpose.</span>
+          </h1>
+
+          <div class="hero-owner-tag">
+            <span class="owner-name">Angeliza Baquiao</span>
+            <span class="owner-separator">•</span>
+            <span class="owner-focus">Website &amp; UI Design</span>
+          </div>
+
+          <p class="hero-intro">
+            Hello! Welcome to my personal portfolio! I'm <strong>Angeliza Baquiao</strong>, a student who enjoys exploring my interests and learning new things. I like spending time playing online games, singing, dancing, watching movies, sleeping, and reading Wattpad stories. These hobbies help me relax, have fun, and enjoy my free time.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">
+              <span>View My Work</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Get In Touch</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-meta-row">
+            <div class="meta-pill">
+              <span class="meta-icon">🎨</span>
+              <span>UI &amp; Visual Design</span>
+            </div>
+            <div class="meta-pill">
+              <span class="meta-icon">💻</span>
+              <span>Python &amp; Django</span>
+            </div>
+            <div class="meta-pill">
+              <span class="meta-icon">🌸</span>
+              <span>Aesthetic &amp; Minimalist</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Portrait Image Column -->
+        <div class="hero-image-col">
+          <div class="portrait-stage">
+            <div class="portrait-glow"></div>
+            <div class="portrait-aura"></div>
+            
+            <figure class="portrait-frame">
+              <img src="{% static 'images/profile.jpg' %}" alt="Portrait of Angeliza Baquiao" class="portrait-img" loading="eager" width="600" height="600">
+            </figure>
+
+            <!-- Floating 3D Glossy Chips -->
+            <div class="floating-chip chip-top-right glass">
+              <div class="chip-icon">✨</div>
+              <div class="chip-text">
+                <strong>UI/UX Explorer</strong>
+                <span>Figma &amp; Layouts</span>
+              </div>
+            </div>
+
+            <div class="floating-chip chip-bottom-left glass">
+              <div class="chip-icon">🌷</div>
+              <div class="chip-text">
+                <strong>Student &amp; Creator</strong>
+                <span>Continuous Growth</span>
+              </div>
+            </div>
+
+            <div class="floating-chip chip-bottom-right glass">
+              <div class="chip-icon">⚡</div>
+              <div class="chip-text">
+                <strong>Django Powered</strong>
+                <span>Full-Stack Web</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="hero-scroll-btn" aria-label="Scroll down to About section">
+        <span class="mouse-scroll">
+          <span class="mouse-dot"></span>
+        </span>
+        <span class="scroll-text">Scroll to explore</span>
+      </a>
+    </section>
+
+
+    <!-- About Me Section -->
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">ABOUT ME</span>
+          <h2 class="section-title" id="about-heading">My Life as a Student</h2>
+          <div class="thin-divider"></div>
+          <p class="section-subtitle">
+            Growing, learning, and diligently pursuing my dreams one step at a time.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Main Editorial Story Card -->
+          <div class="editorial-card glass">
+            <div class="card-watermark" aria-hidden="true">AB</div>
+            <div class="editorial-head">
+              <span class="pill-badge-sm">Student Journey</span>
+              <h3 class="editorial-title">Patience, Perseverance &amp; Purpose</h3>
+            </div>
+            
+            <div class="editorial-body">
+              <p>
+                I am a student who continues to learn, grow, and work toward my dreams. I try my best to manage my school responsibilities while making time for the things I enjoy. Each experience helps me become more responsible and confident.
+              </p>
+              <p>
+                Being a student teaches me patience, time management, and perseverance. I know that learning can be challenging, but I believe that with effort and determination, I can reach my goals.
+              </p>
+              <blockquote class="editorial-quote">
+                "My goal is to finish my studies, continue improving myself, and build a good future. I believe that every step I take in learning brings me closer to achieving my dreams."
+              </blockquote>
+            </div>
+
+            <div class="editorial-footer">
+              <div class="info-badge">
+                <span class="badge-label">Focus</span>
+                <span class="badge-val">Website &amp; UI Design</span>
+              </div>
+              <div class="info-badge">
+                <span class="badge-label">Status</span>
+                <span class="badge-val">Dedicated Student</span>
+              </div>
+              <div class="info-badge">
+                <span class="badge-label">Outlook</span>
+                <span class="badge-val">Driven &amp; Optimistic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Core Tenet Cards -->
+          <div class="about-pillars">
+            <div class="pillar-card glass">
+              <div class="pillar-icon-box">
+                <span class="pillar-icon">⏳</span>
+              </div>
+              <div class="pillar-info">
+                <h4>Time Management</h4>
+                <p>Balancing academic requirements, personal growth, and creative hobbies with discipline and daily intention.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass">
+              <div class="pillar-icon-box">
+                <span class="pillar-icon">🌱</span>
+              </div>
+              <div class="pillar-info">
+                <h4>Patience &amp; Perseverance</h4>
+                <p>Navigating the challenges of learning with an open mind, resilience, and steady determination to succeed.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card glass">
+              <div class="pillar-icon-box">
+                <span class="pillar-icon">🎯</span>
+              </div>
+              <div class="pillar-info">
+                <h4>Future Goals</h4>
+                <p>Finishing my studies with pride, mastering digital design tools, and crafting meaningful experiences for the web.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Hobbies & Work Showcase Section -->
+    <section class="section work-section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">MY HOBBIES &amp; WORK</span>
+          <h2 class="section-title" id="work-heading">My Favorite Activities &amp; Showcase</h2>
+          <div class="thin-divider"></div>
+          <p class="section-subtitle">
+            During my free time, I enjoy hobbies that make me happy, entertained, and relaxed. I like trying different activities and spending time doing things I love.
+          </p>
+        </div>
+
+        <!-- 4 Hobby Cards Grid -->
+        <div class="hobbies-grid">
+          
+          <!-- Hobby 1: Online Games -->
+          <article class="hobby-card glass">
+            <div class="hobby-card-inner">
+              <div class="hobby-icon-wrap">
+                <img src="{% static 'images/hobby-gaming.svg' %}" alt="Online Games icon" class="hobby-icon" width="64" height="64">
+              </div>
+              <div class="hobby-tag">Entertainment &amp; Strategy</div>
+              <h3 class="hobby-name">Playing Online Games</h3>
+              <p class="hobby-desc">
+                I enjoy playing online games because they are fun and entertaining. They also give me a chance to unwind and enjoy some free time.
+              </p>
+              <div class="hobby-perks">
+                <span>Quick reflexes</span>
+                <span>Team coordination</span>
+                <span>Fun relaxation</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hobby 2: Singing and Dancing -->
+          <article class="hobby-card glass">
+            <div class="hobby-card-inner">
+              <div class="hobby-icon-wrap">
+                <img src="{% static 'images/hobby-singing.svg' %}" alt="Singing and Dancing icon" class="hobby-icon" width="64" height="64">
+              </div>
+              <div class="hobby-tag">Expression &amp; Rhythm</div>
+              <h3 class="hobby-name">Singing and Dancing</h3>
+              <p class="hobby-desc">
+                Singing and dancing are hobbies I enjoy because they let me express myself, have fun, and enjoy music.
+              </p>
+              <div class="hobby-perks">
+                <span>Creative expression</span>
+                <span>Musical harmony</span>
+                <span>Uplifting energy</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hobby 3: Watching Movies and Sleeping -->
+          <article class="hobby-card glass">
+            <div class="hobby-card-inner">
+              <div class="hobby-icon-wrap">
+                <img src="{% static 'images/hobby-movies.svg' %}" alt="Watching Movies and Sleeping icon" class="hobby-icon" width="64" height="64">
+              </div>
+              <div class="hobby-tag">Leisure &amp; Recharging</div>
+              <h3 class="hobby-name">Watching Movies &amp; Sleeping</h3>
+              <p class="hobby-desc">
+                I like watching movies because they entertain me and let me enjoy different stories. I also enjoy sleeping and resting whenever I have free time.
+              </p>
+              <div class="hobby-perks">
+                <span>Cinematic stories</span>
+                <span>Rest &amp; recovery</span>
+                <span>Cozy comfort</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hobby 4: Reading Wattpad -->
+          <article class="hobby-card glass">
+            <div class="hobby-card-inner">
+              <div class="hobby-icon-wrap">
+                <img src="{% static 'images/hobby-wattpad.svg' %}" alt="Reading Wattpad icon" class="hobby-icon" width="64" height="64">
+              </div>
+              <div class="hobby-tag">Imagination &amp; Stories</div>
+              <h3 class="hobby-name">Reading Wattpad</h3>
+              <p class="hobby-desc">
+                I enjoy reading stories on Wattpad because I like exploring different plots, characters, and ideas through reading.
+              </p>
+              <div class="hobby-perks">
+                <span>Imaginative worlds</span>
+                <span>Character arcs</span>
+                <span>Narrative passion</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Featured Creative Work / UI Showcase -->
+        <div class="showcase-subhead text-center">
+          <span class="subhead-pill">CREATIVE SHOWCASE</span>
+          <h3 class="subhead-title">Website &amp; UI Design Highlights</h3>
+          <p class="subhead-text">A glimpse into visual designs, layouts, and web experiences crafted with care.</p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <div class="project-card glass">
+            <div class="project-preview">
+              <img src="{% static 'images/project-ui1.svg' %}" alt="Aesthetic Web UI Concept" class="project-img">
+              <div class="preview-overlay">
+                <span class="overlay-tag">Figma &amp; HTML/CSS</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-cat">Web Design</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h4 class="project-title">Modern Minimalist Web Portal</h4>
+              <p class="project-desc">A spacious, responsive website concept emphasizing clean typography, soft pastel tones, and intuitive user navigation.</p>
+              <div class="project-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Responsive</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass">
+            <div class="project-preview">
+              <img src="{% static 'images/project-ui2.svg' %}" alt="Mobile App UI Design" class="project-img">
+              <div class="preview-overlay">
+                <span class="overlay-tag">UI/UX &amp; Prototyping</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-cat">App Interface</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h4 class="project-title">Lifestyle &amp; Story Reader Interface</h4>
+              <p class="project-desc">A mobile UI prototype designed for immersive reading and hobby tracking, styled with soothing colors and tactile cards.</p>
+              <div class="project-tags">
+                <span class="tag">UI/UX</span>
+                <span class="tag">Photoshop</span>
+                <span class="tag">Prototyping</span>
+                <span class="tag">Figma</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card glass">
+            <div class="project-preview">
+              <img src="{% static 'images/project-ui3.svg' %}" alt="Personal Portfolio Design System" class="project-img">
+              <div class="preview-overlay">
+                <span class="overlay-tag">Design System</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-cat">Design System</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h4 class="project-title">Angeliza Baquiao Design System</h4>
+              <p class="project-desc">The complete aesthetic design system behind this portfolio: Playfair Display, Poppins, Soft Pink (#F8C8DC), White, and Mauve (#A65D78).</p>
+              <div class="project-tags">
+                <span class="tag">Design System</span>
+                <span class="tag">Django</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">CSS Grid</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Toolkit / Skills Section -->
+    <section class="section toolkit-section" id="toolkit" aria-labelledby="toolkit-heading">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">TOOLKIT &amp; SKILLS</span>
+          <h2 class="section-title" id="toolkit-heading">Tools &amp; Technologies</h2>
+          <div class="thin-divider"></div>
+          <p class="section-subtitle">
+            Accurate and industry-recognized applications and tools I use to design interfaces and build web applications.
+          </p>
+        </div>
+
+        <div class="toolkit-columns">
+          
+          <!-- Category 1: Design Tools -->
+          <div class="toolkit-group">
+            <div class="group-header">
+              <div class="group-icon-bubble">🎨</div>
+              <div>
+                <h3 class="group-title">Design Tools</h3>
+                <span class="group-subtitle">Creative UI, Graphics &amp; Video</span>
+              </div>
+            </div>
+
+            <div class="tools-list">
+              
+              <!-- Figma -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-figma.svg' %}" alt="Figma Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">Figma</h4>
+                    <span class="tool-badge">UI/UX</span>
+                  </div>
+                  <p class="tool-purpose">User interface design, wireframing, interactive prototyping, and responsive layout systems.</p>
+                </div>
+              </div>
+
+              <!-- Photoshop -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-photoshop.svg' %}" alt="Adobe Photoshop Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">Adobe Photoshop</h4>
+                    <span class="tool-badge">Graphics</span>
+                  </div>
+                  <p class="tool-purpose">Image retouching, raster asset creation, photo manipulation, and visual mockups.</p>
+                </div>
+              </div>
+
+              <!-- Video Editing -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-video-editing.svg' %}" alt="Video Editing Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">Video Editing</h4>
+                    <span class="tool-badge">Premiere &amp; Motion</span>
+                  </div>
+                  <p class="tool-purpose">Timeline editing, sequence cutting, transitions, rhythm pacing, and audiovisual storytelling.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 2: Development Tools -->
+          <div class="toolkit-group">
+            <div class="group-header">
+              <div class="group-icon-bubble">💻</div>
+              <div>
+                <h3 class="group-title">Development Tools</h3>
+                <span class="group-subtitle">Full-Stack &amp; Web Standards</span>
+              </div>
+            </div>
+
+            <div class="tools-list">
+              
+              <!-- Django -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-django.svg' %}" alt="Django Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">Django</h4>
+                    <span class="tool-badge">Python Framework</span>
+                  </div>
+                  <p class="tool-purpose">Python backend web framework, clean MTV architecture, ORM database models, and secure forms.</p>
+                </div>
+              </div>
+
+              <!-- JavaScript -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-javascript.svg' %}" alt="JavaScript Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">JavaScript</h4>
+                    <span class="tool-badge">Vanilla JS</span>
+                  </div>
+                  <p class="tool-purpose">Dynamic client interactions, DOM manipulation, asynchronous form handling, and event listeners.</p>
+                </div>
+              </div>
+
+              <!-- HTML5 -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-html5.svg' %}" alt="HTML5 Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">HTML5</h4>
+                    <span class="tool-badge">Semantic Web</span>
+                  </div>
+                  <p class="tool-purpose">Modern semantic structure, accessible landmarks, form elements, and search engine friendly markup.</p>
+                </div>
+              </div>
+
+              <!-- CSS3 -->
+              <div class="tool-item glass">
+                <div class="tool-logo-box">
+                  <img src="{% static 'images/logo-css3.svg' %}" alt="CSS3 Logo" class="tool-logo" width="40" height="40">
+                </div>
+                <div class="tool-details">
+                  <div class="tool-header-row">
+                    <h4 class="tool-name">CSS3</h4>
+                    <span class="tool-badge">Modern Styling</span>
+                  </div>
+                  <p class="tool-purpose">Responsive layouts, Flexbox, CSS Grid, custom properties, glassmorphism, and smooth keyframe animations.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">GET IN TOUCH</span>
+          <h2 class="section-title" id="contact-heading">Let's Connect &amp; Collaborate</h2>
+          <div class="thin-divider"></div>
+          <p class="section-subtitle">
+            Have a project, feedback, or simply want to say hello? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Details Column -->
+          <div class="contact-info-col glass">
+            <h3 class="info-title">Contact Information</h3>
+            <p class="info-desc">
+              Feel free to reach out directly through phone, email, or by filling out the contact form. I'm always open to new connections and creative opportunities!
+            </p>
+
+            <div class="contact-cards-list">
+              
+              <!-- Owner Name -->
+              <div class="contact-card-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="contact-item-details">
+                  <span class="contact-label">Full Name</span>
+                  <strong class="contact-value">Angeliza Baquiao</strong>
+                </div>
+              </div>
+
+              <!-- Focus -->
+              <div class="contact-card-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="contact-item-details">
+                  <span class="contact-label">Creative Focus</span>
+                  <strong class="contact-value">Website and UI design</strong>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="contact-card-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-item-details">
+                  <span class="contact-label">Contact Number</span>
+                  <a href="tel:09708103613" class="contact-link">09708103613</a>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-card-item">
+                <div class="contact-icon-bubble">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-item-details">
+                  <span class="contact-label">Email Address</span>
+                  <a href="mailto:angelizaoshitabaquiao@gmail.com" class="contact-link">angelizaoshitabaquiao@gmail.com</a>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="contact-availability-box">
+              <span class="avail-dot"></span>
+              <span>Available for student collaborations &amp; web design inquiries</span>
+            </div>
+          </div>
+
+          <!-- Django-Powered Contact Form Column -->
+          <div class="contact-form-col glass">
+            <h3 class="form-heading">Send a Message</h3>
+            <p class="form-subtext">Fill in the fields below and I'll receive your note directly.</p>
+
+            <form method="post" action="{% url 'index' %}#contact" class="django-contact-form" id="contactForm" novalidate>
+              {% csrf_token %}
+
+              {% if error_message %}
+              <div class="form-alert-error" role="alert">
+                {{ error_message }}
+              </div>
+              {% endif %}
+
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Your Name <span class="required-star">*</span></label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <span class="field-error">{{ form.name.errors.0 }}</span>
+                {% endif %}
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address <span class="required-star">*</span></label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <span class="field-error">{{ form.email.errors.0 }}</span>
+                {% endif %}
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject <span class="required-star">*</span></label>
+                {{ form.subject }}
+                {% if form.subject.errors %}
+                <span class="field-error">{{ form.subject.errors.0 }}</span>
+                {% endif %}
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message <span class="required-star">*</span></label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                <span class="field-error">{{ form.message.errors.0 }}</span>
+                {% endif %}
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                  <span class="btn-text">Send Message</span>
+                  <svg class="btn-spinner hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+                  </svg>
+                  <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                </button>
+              </div>
+
+              <div id="formFeedback" class="form-feedback hidden" aria-live="polite"></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-name">Angeliza Baquiao</span>
+        </a>
+        <p class="footer-tagline">Aesthetic Website and UI Design Portfolio.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Angeliza Baquiao. All rights reserved.</p>
+        <a href="#top" class="back-to-top-btn" aria-label="Back to top">
+          <span>Back to top</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

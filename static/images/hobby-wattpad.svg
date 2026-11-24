@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="30" fill="url(#wattGrad)"/>
+  <g transform="translate(26, 28)">
+    <!-- Open Book -->
+    <path d="M34 16C26 12 16 12 4 15V52C16 49 26 49 34 53C42 49 52 49 64 52V15C52 12 42 12 34 16Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    <line x1="34" y1="16" x2="34" y2="53" stroke="#A65D78" stroke-width="2"/>
+    <line x1="12" y1="24" x2="26" y2="24" stroke="#A65D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="12" y1="32" x2="26" y2="32" stroke="#A65D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="12" y1="40" x2="22" y2="40" stroke="#A65D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="42" y1="24" x2="56" y2="24" stroke="#A65D78" stroke-width="2" stroke-linecap="round"/>
+    <line x1="42" y1="32" x2="56" y2="32" stroke="#A65D78" stroke-width="2" stroke-linecap="round"/>
+    <!-- Wattpad 'W' or magic star -->
+    <path d="M34 2L36 7L41 7L37 10L39 15L34 12L29 15L31 10L27 7L32 7Z" fill="#F8C8DC"/>
+  </g>
+  <defs>
+    <linearGradient id="wattGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF9EAA"/>
+      <stop offset="60%" stop-color="#A65D78"/>
+      <stop offset="100%" stop-color="#551D33"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="30" fill="url(#movGrad)"/>
+  <g transform="translate(24, 24)">
+    <!-- Clapperboard / Screen -->
+    <rect x="6" y="20" width="60" height="42" rx="8" fill="#FFFFFF" fill-opacity="0.95"/>
+    <polygon points="32,32 46,41 32,50" fill="#A65D78"/>
+    <!-- Crescent moon / sleep stars -->
+    <path d="M48 6C45 10 45 16 50 19C45 20 40 16 40 10C40 8 41 7 42 6" fill="#F8C8DC"/>
+    <circle cx="58" cy="8" r="1.5" fill="#FFFFFF"/>
+    <circle cx="52" cy="3" r="1" fill="#FFFFFF"/>
+  </g>
+  <defs>
+    <linearGradient id="movGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F8C8DC"/>
+      <stop offset="60%" stop-color="#A65D78"/>
+      <stop offset="100%" stop-color="#3D1A27"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="30" fill="url(#singGrad)"/>
+  <g transform="translate(28, 22)">
+    <!-- Mic -->
+    <rect x="22" y="6" width="20" height="34" rx="10" fill="#FFFFFF"/>
+    <path d="M14 26C14 38 23 46 32 46C41 46 50 38 50 26" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <line x1="32" y1="46" x2="32" y2="60" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <line x1="20" y1="60" x2="44" y2="60" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <!-- Music notes -->
+    <path d="M6 14C6 11 8 8 11 8H18V24C16.5 22.8 14.5 22 12 22C8.7 22 6 24.7 6 28C6 31.3 8.7 34 12 34C15.3 34 18 31.3 18 28V12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <defs>
+    <linearGradient id="singGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A65D78"/>
+      <stop offset="100%" stop-color="#662D42"/>
+    </linearGradient>
+  </defs>
+</svg>

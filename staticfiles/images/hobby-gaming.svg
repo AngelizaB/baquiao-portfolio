@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="30" fill="url(#gameGrad)"/>
+  <g transform="translate(24, 30)">
+    <path d="M14 14C19 6 30 2 36 2C42 2 53 6 58 14C65 25 72 48 64 56C58 62 48 54 44 48C40 42 32 42 28 48C24 54 14 62 8 56C0 48 7 25 14 14Z" fill="#FFFFFF" fill-opacity="0.95"/>
+    <!-- D-pad -->
+    <path d="M22 24H26V28H22zM22 32H26V36H22zM18 28H22V32H18zM26 28H30V32H26z" fill="#A65D78"/>
+    <!-- Buttons -->
+    <circle cx="48" cy="26" r="3" fill="#F8C8DC"/>
+    <circle cx="54" cy="32" r="3" fill="#A65D78"/>
+    <circle cx="42" cy="32" r="3" fill="#662D42"/>
+    <circle cx="48" cy="38" r="3" fill="#A65D78"/>
+  </g>
+  <defs>
+    <linearGradient id="gameGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F8C8DC"/>
+      <stop offset="100%" stop-color="#A65D78"/>
+    </linearGradient>
+  </defs>
+</svg>
